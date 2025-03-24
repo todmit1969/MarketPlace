@@ -9,3 +9,11 @@ class Product:
         self.description = description
         self.price = price
         self.quantity = quantity
+
+    def __str__(self):
+        return (
+            f"Product(name={self.name}, "
+            f"description={self.description}, "
+            f"price={self.price}, "
+            f"quantity={self.quantity})"
+        )

@@ -15,4 +15,3 @@ class Category:
         def add_product(self, product):
             self.products.append(product)
             Category.products_count += 1
-
