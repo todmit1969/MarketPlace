@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "marketplace"
+version = "0.1.0"
+description = ""
+authors = ["tmitev <todor.mitev@sofairo.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.1.2"
+mypy = "^1.15.0"
+pytest = "^8.3.5"
+pytest-cov = "^6.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
