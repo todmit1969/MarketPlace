@@ -41,5 +41,5 @@ if __name__ == "__main__":
     print(len(category2.products))
     print(category2.products)
 
-    print(Category.category_count)
-    print(Category.products_count)
+    print(f"Количество категорий: {Category.category_count}")
+    print(f"Количество продуктов: {Category.products_count}")
