@@ -26,13 +26,20 @@ def product1():
 @pytest.fixture
 def product2():
     return Product(
-        name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8
+        name="Iphone 15",
+        description="512GB, Gray space",
+        price=210000.0,
+        quantity=8
     )
 
 
 @pytest.fixture
 def product3():
-    return Product(name="55 QLED 4K", description="Фоновая подсветка", price=123000.0, quantity=7)
+    return Product(
+        name="55 QLED 4K",
+        description="Фоновая подсветка",
+        price=123000.0,
+        quantity=14)
 
 
 @pytest.fixture
@@ -70,3 +77,6 @@ def category3(product4):
         description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         products=[product4],
     )
+@pytest.fixture
+def product_str():
+    return "Название продукта: Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."

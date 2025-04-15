@@ -37,3 +37,9 @@ def tests_products(product1, product2, product3, product4):
     assert product4.description == "1024GB, Синий"
     assert product4.price == 31000.0
     assert product4.quantity == 14
+
+def test_product_str(product_str):
+    assert str(product_str) == "Название продукта: Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
+def test_product_add(product1, product2):
+    assert print(product1 + product2) == 2580000.0
