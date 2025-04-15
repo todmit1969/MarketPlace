@@ -20,8 +20,9 @@ class Category:
 
     @property
     def products(self):
-        return "\n".join(
-            [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products])
+        # return "\n".join(
+        #    [f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт." for product in self.__products])
+        return self.__products
 
     def add_product(self, product):
         if isinstance(product,Product):

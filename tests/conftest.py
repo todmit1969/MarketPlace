@@ -77,6 +77,8 @@ def category3(product4):
         description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
         products=[product4],
     )
+
+
 @pytest.fixture
 def product_str():
     return "Название продукта: Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
