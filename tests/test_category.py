@@ -10,7 +10,7 @@ def test_category_init(category_init):
         == "Смартфоны, как средство не только коммуникации,"
         "но и получения дополнительных функций для удобства жизни"
     )
-    assert category_init.products == []
+    assert category_init.products == ''
 
 def test_category(
     category1,
@@ -26,7 +26,7 @@ def test_category(
         category1.description
         == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
     )
-    assert category1.products == [product1, product2, product3]
+    assert category1.products == (str(product1), str(product2), str(product3))
 
     assert category2.name == "Телевизоры"
     assert (
@@ -53,3 +53,6 @@ def test_category(
     assert category1.products_count == 5
     assert category2.products_count == 5
     assert category3.products_count == 5
+
+def test_category_str(category1):
+    assert str(category1) == "Название категории: Смартфоны, количество продуктов: 27 шт."

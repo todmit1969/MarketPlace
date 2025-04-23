@@ -11,12 +11,13 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
-        return (
-            f"Product(name={self.name}, "
-            f"description={self.description}, "
-            f"price={self.price}, "
-            f"quantity={self.quantity})"
-        )
+        return f"Название продукта: {self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        if isinstance(other, Product):
+            return (self.__price * self.quantity) + (other.__price * other.quantity)
+        return NotImplemented
+
     @property
     def price(self):
         return self.__price
