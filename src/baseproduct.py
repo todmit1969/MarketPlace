@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class BasePoduct(ABC):
+class BaseProduct(ABC):
 
     def __init__(self, name, description, price, quantity):
         self.name = name

@@ -1,7 +1,7 @@
-from src.baseproduct import BasePoduct
+from src.baseproduct import BaseProduct
 from src.mixinprint import MixinPrint
 
-class Product(BasePoduct, MixinPrint):
+class Product(BaseProduct, MixinPrint):
     name: str
     description: str
     __price: float
