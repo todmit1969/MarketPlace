@@ -1,10 +1,14 @@
-class Product:
+from src.baseproduct import BasePoduct
+from src.mixinprint import MixinPrint
+
+class Product(BasePoduct, MixinPrint):
     name: str
     description: str
     __price: float
     quantity: int
 
     def __init__(self, name, description, price, quantity):
+        super().__init__(name, description, price, quantity)
         self.name = name
         self.description = description
         self.__price = price
