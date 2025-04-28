@@ -1,6 +1,6 @@
 from src.product import Product
 from src.smartphone import Smartphone
-
+import pytest
 
 def test_category_1(category1):
     category1.category_count = 1
@@ -44,3 +44,7 @@ def test_add_new_product_2(category1):
                                     Product('55 QLED 4K', 'Фоновая подсветка', 123000.0, 14),
                                     Product('Xiaomi Redmi Note 11', '1024GB, Синий', 31000.0, 14)
                                 ]
+
+def test_add_zero_qty_product_to_category(zero_qty_product):
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        product_invalid

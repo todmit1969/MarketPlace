@@ -76,6 +76,7 @@ def test_smartphone_wrong_add(smartphone1, grass1):
 def test_grass_add(grass1, grass2):
     assert grass1 + grass2 == 16750.0
 
+
 def test_mixinprint(capsys):
     Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
     message = capsys.readouterr()
@@ -88,3 +89,8 @@ def test_mixinprint(capsys):
     LawnGrass("Газонная трава", "Элитная трава для газона", 500.0, 20, "Россия", "7 дней", "Зеленый")
     message = capsys.readouterr()
     assert message.out.strip() == "LawnGrass(Газонная трава, Элитная трава для газона, 500.0, 20)"
+
+def test_product_invalid_raises_value_error():
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        # Создаём объект Product с нулевым количеством, чтобы проверить выброс исключения
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)

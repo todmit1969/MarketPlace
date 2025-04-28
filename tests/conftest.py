@@ -137,3 +137,8 @@ def grass2():
         germination_period="5 дней",
         color="Темно-зеленый"
     )
+
+@pytest.fixture
+def product_invalid():
+    # Здесь создаётся объект Product, который должен вызвать исключение
+    return Product("Бракованный товар", "Неверное количество", 1000.0, 0)
