@@ -20,3 +20,7 @@ class BaseProduct(ABC):
     def price(self, new_price):
         """ Сеттер для цены с проверкой """
         pass
+
+    @abstractmethod
+    def new_product(cls, dict_products):
+        pass
