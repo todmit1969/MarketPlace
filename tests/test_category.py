@@ -45,6 +45,6 @@ def test_add_new_product_2(category1):
                                     Product('Xiaomi Redmi Note 11', '1024GB, Синий', 31000.0, 14)
                                 ]
 
-def test_add_zero_qty_product_to_category(zero_qty_product):
+def test_add_zero_qty_product_to_category(product_invalid):
     with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
         product_invalid
