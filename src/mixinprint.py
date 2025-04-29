@@ -1,5 +1,6 @@
 class MixinPrint:
     def __init__(self, *args, **kwargs):
+        super().__init__()
         print(repr(self))
 
     def __repr__(self):
