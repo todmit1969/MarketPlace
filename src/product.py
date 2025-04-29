@@ -8,11 +8,11 @@ class Product(BaseProduct, MixinPrint):
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-        super().__init__(name, description, price, quantity)
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__
 
     def __str__(self):
         return (f"Название продукта: {self.name}, "
