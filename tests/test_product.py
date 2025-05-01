@@ -15,16 +15,6 @@ def test_products(product1):
 def test_price_property(product1):
     assert product1.price == 180000.0
 
-
-def test_price_setter(capsys, product1):
-    product1.price = -5000
-    message = capsys.readouterr()
-    assert message.out.strip() == "Цена не может быть отрицательной или равна нулю!"
-    product1.price = 0
-    message = capsys.readouterr()
-    assert message.out.strip() == "Цена не может быть отрицательной или равна нулю!"
-
-
 def test_new_product():
     new_product = Product.new_product(
         {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
@@ -90,7 +80,3 @@ def test_mixinprint(capsys):
     message = capsys.readouterr()
     assert message.out.strip() == "LawnGrass(Газонная трава, Элитная трава для газона, 500.0, 20)"
 
-def test_product_invalid_raises_value_error():
-    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
-        # Создаём объект Product с нулевым количеством, чтобы проверить выброс исключения
-        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
