@@ -1,19 +1,20 @@
 from src.baseproduct import BaseProduct
 from src.mixinprint import MixinPrint
 
-class Product(MixinPrint, BaseProduct ):
+class Product(MixinPrint, BaseProduct):
     name: str
     description: str
     __price: float
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-        #(name, description, price, quantity)
+         #(name, description, price, quantity)
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
-        super().__init__(name, description, price, quantity)
+        super().__init__()
+
 
     def __str__(self):
         return (f"Название продукта: {self.name}, "
@@ -40,14 +41,13 @@ class Product(MixinPrint, BaseProduct ):
     def new_product(cls, dict_products):
         name = dict_products['name']
         description = dict_products['description']
-        if dict_products['price'] <= 0:
-            raise ValueError("Цена не может быть отрицательной или равна нулю!")
-        else:
-            price = dict_products['price']
-        if dict_products['quantity'] <=0:
-            raise ValueError("Количество не может быть отрицательным или равно нулю!")
+        price = dict_products['price']
+        if dict_products['quantity'] <= 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен!")
         else:
             quantity = dict_products['quantity']
+
+
 
         new_products = Product(name, description, price, quantity)
         return new_products
