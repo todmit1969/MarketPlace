@@ -1,6 +1,6 @@
 from src.product import Product
 from src.smartphone import Smartphone
-
+import pytest
 
 def test_category_1(category1):
     category1.category_count = 1
@@ -27,10 +27,11 @@ def test_add_new_product(category1):
 
     product = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
     category1.add_product(product)
-
     expected_count = old_count + 1
     assert len(category1.products) == expected_count
 
+
 def test_category_str(category1):
     assert str(category1) == "Название категории: Смартфоны, количество продуктов: 27 шт."
+
 
