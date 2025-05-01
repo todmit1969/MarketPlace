@@ -1,5 +1,5 @@
 from src.product import Product
-from src.smartphone import Smartphone
+from src.category import Category
 import pytest
 
 def test_category_1(category1):
@@ -16,12 +16,6 @@ def test_category_2(category1, category2):
     assert category2.products_count == 7
     assert category1.products_count == 7
 
-def test_products_list(category1, category2):
-    # assert first_category.products == 'Смартфоны, количество продуктов: 5'
-    # assert second_category.products == 'Телевизоры, количество продуктов: 7'
-    print(category1.products)
-    print(category2.products)
-
 def test_add_new_product(category1):
     old_count = len(category1.products)
     product = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
@@ -32,3 +26,6 @@ def test_add_new_product(category1):
 def test_category_str(category1):
     assert str(category1) == "Название категории: Смартфоны, количество продуктов: 27 шт."
 
+def test_product_len_price(product1, product2, product3):
+    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+    assert category1.middle_price() == 19000.0
