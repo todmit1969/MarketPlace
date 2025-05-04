@@ -8,10 +8,12 @@ class Product(MixinPrint, BaseProduct):
     quantity: int
 
     def __init__(self, name, description, price, quantity):
-         #(name, description, price, quantity)
         self.name = name
         self.description = description
-        self.__price = price
+        if price < 0:
+            raise ValueError("Цена не может быть отрицательной или равна нулю!")
+        else:
+            self.__price = price
         self.quantity = quantity
         super().__init__()
 

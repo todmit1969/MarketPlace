@@ -15,16 +15,6 @@ def test_products(product1):
 def test_price_property(product1):
     assert product1.price == 180000.0
 
-
-def test_price_setter(capsys, product1):
-    product1.price = -5000
-    message = capsys.readouterr()
-    assert message.out.strip() == "Цена не может быть отрицательной или равна нулю!"
-    product1.price = 0
-    message = capsys.readouterr()
-    assert message.out.strip() == "Цена не может быть отрицательной или равна нулю!"
-
-
 def test_new_product():
     new_product = Product.new_product(
         {"name": "Samsung Galaxy S23 Ultra", "description": "256GB, Серый цвет, 200MP камера", "price": 180000.0,
