@@ -80,3 +80,7 @@ def test_mixinprint(capsys):
     message = capsys.readouterr()
     assert message.out.strip() == "LawnGrass(Газонная трава, Элитная трава для газона, 500.0, 20)"
 
+def test_product_invalid_raises_value_error():
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        # Создаём объект Product с нулевым количеством, чтобы проверить выброс исключения
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)

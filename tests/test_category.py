@@ -1,5 +1,6 @@
 from src.product import Product
 from src.category import Category
+from src.smartphone import Smartphone
 import pytest
 
 def test_category_1(category1):
