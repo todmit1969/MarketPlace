@@ -1,27 +1,52 @@
-from src.product import Product
-from src.category import Category
+from http.server import BaseHTTPRequestHandler, HTTPServer
+
+# Для начала определим настройки запуска
+hostName = "localhost"  # Адрес для доступа по сети
+serverPort = 8080  # Порт для доступа по сети
 
 
-if __name__ == '__main__':
+class MyServer(BaseHTTPRequestHandler):
+    """
+    Специальный класс, который отвечает за
+    обработку входящих запросов от клиентов
+    """
+
+    def do_GET(self):
+        """ Метод для обработки входящих GET-запросов """
+        path = self.get_path()
+        print(path)
+        try:
+            with open(path, "r", encoding="utf-8") as file:
+                page_content = file.read()
+        except FileNotFoundError:
+            self.send_error(404, "File Not Found")
+        else:
+            self.send_response(200)  # Отправка кода ответа
+            self.send_header("Content-type",
+                             self.get_content_type())  # Отправка типа данных, который будет передаваться
+            self.end_headers()  # Завершение формирования заголовков ответа
+            self.wfile.write(bytes(page_content, "utf-8"))  # Тело ответа
+
+    def get_path(self) -> str:
+        if self.path == "/":
+            return "contact.html"
+        return self.path[1:]
+
+    def get_content_type(self) -> str:
+        if self.path.endswith(".css"):
+            return "text/css"
+        elif self.path.endswith(".js"):
+            return "text/javascript"
+        else:
+            return "text/html"
+
+
+if __name__ == "__main__":
+    webServer = HTTPServer((hostName, serverPort), MyServer)
+    print("Server started http://%s:%s" % (hostName, serverPort))
     try:
-        product_invalid = Product("Бракованный товар", "Неверное количество", 1000.0, 0)
-    except ValueError as e:
-        print(
-            "Возникла ошибка ValueError прерывающая работу программы при попытке добавить продукт с нулевым количеством")
-    else:
-        print("Не возникла ошибка ValueError при попытке добавить продукт с нулевым количеством")
-
-    product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-
-    category1 = Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
-
-    print(category1.middle_price())
-
-
-    category_empty = Category("Пустая категория", "Категория без продуктов", [])
-    print(category_empty.middle_price())
-
-    print(Category.category_count)
-    print(Category.products_count)
+        webServer.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    webServer.server_close()
+    print("Server stopped.")
