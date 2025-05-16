@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<style>
+    .sidebar {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .card_param {
+      width: 20rem;
+      margin-top: 20px;
+      margin-left: 50px
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 sidebar">
+                <h3>Меню</h3>
+                <hr class="border-2"/>
+                <h5><a class="col-2" href="main.html"/>Главная</h5>
+                <h5><a class="col-2" href="category.html"/>Категории</h5>
+                <h5><a class="col-2" href="catalog.html"/>Заказы</h5>
+                <h5><a class="col-2" href="contacts.html"/>Контакты</h5>
+                <div class="dropdown mt-auto">
+                  <a class="btn btn-secondary dropdown-toggle w-100" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Пользователь
+                  </a>
+                  <ul class="dropdown-menu ">
+                    <li><a class="dropdown-item" href="#">Профиль</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Выход</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="col-10">
+                <center><h1 style="margin-top: 70px; margin-bottom: 50px">Контакты</h1></center>
+        <div class="row mt-5"> <!-- Дополнительный вложенный блок для работы с колонками -->
+            <div class="col-5"> <!-- -->
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <h5>Имя</h5>
+                            <div class="mb-3">
+                                <input type="text" class="form-control">
+                            </div>
+                            <h5>Почта</h5>
+                            <div class="input-group has-validation">
+                             <span class="input-group-text">@</span>
+                            <input type="text" class="form-control" id="username" required="">
+              <div class="invalid-feedback">
+                  Your username is required.
+                </div>
+              </div>
+                            <h5 style="margin-top: 15px">Сообщение</h5>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                        <div class="col-7"> <!-- Колонка для отображения контактов -->
+                <div class="card"> <!-- Карточка для визуального отделения вложенных данных -->
+                    <div class="card-body"> <!-- Тело карточки, внутри которого размещаются данные -->
+                        <h2>Наши контакты:</h2>
+                        <div class="row">
+                            <p>Разнообразный и богатый опыт рамки и место обучения кадров в значительной степени обуславливает создание дальнейших направлений развития проекта. С другой стороны реализация намеченного плана развития создаёт предпосылки качественно новых шагов для позиций, занимаемых участниками в отношении поставленных задач! Разнообразный и богатый опыт постоянный количественный рост и сфера нашей активности требует от нас анализа форм воздействия.
+Таким образом, консультация с профессионалами из IT создаёт предпосылки качественно новых шагов для системы обучения кадров, соответствующей насущным потребностям. Соображения высшего порядка, а также новая модель организационной деятельности позволяет выполнить важнейшие задания по разработке форм воздействия. Таким образом, социально-экономическое развитие играет важную роль в формировании соответствующих условий активизации. Разнообразный и богатый опыт начало повседневной работы по формированию позиции представляет собой интересный эксперимент проверки модели развития.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
