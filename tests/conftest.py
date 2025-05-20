@@ -15,6 +15,7 @@ def category_init():
         [],
     )
 
+
 @pytest.fixture
 def product1():
     return Product(
@@ -58,7 +59,8 @@ def product4():
 def category1(product1, product2, product3):
     return Category(
         name="Смартфоны",
-        description="Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
+        description="Смартфоны, как средство не только коммуникации, "
+                    "но и получения дополнительных функций для удобства жизни",
         products=[product1, product2, product3],
     )
 
@@ -67,7 +69,8 @@ def category1(product1, product2, product3):
 def category2(product1, product2):
     return Category(
         name="Телевизоры",
-        description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
+        description="Современный телевизор, который позволяет наслаждаться"
+                    " просмотром, станет вашим другом и помощником",
         products=[product1],
     )
 
@@ -76,7 +79,8 @@ def category2(product1, product2):
 def category3(product4):
     return Category(
         name="Телевизоры",
-        description="Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
+        description="Современный телевизор, который позволяет "
+                    "наслаждаться просмотром, станет вашим другом и помощником",
         products=[product4],
     )
 
@@ -137,3 +141,8 @@ def grass2():
         germination_period="5 дней",
         color="Темно-зеленый"
     )
+
+@pytest.fixture
+def product_invalid():
+    # Здесь создаётся объект Product, который должен вызвать исключение
+    return Product("Бракованный товар", "Неверное количество", 0.0, 0)

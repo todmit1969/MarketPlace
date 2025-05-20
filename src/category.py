@@ -30,3 +30,13 @@ class Category:
             Category.products_count += 1
         else:
             print("Неверный формат данных!")
+
+    def middle_price(self):
+
+        try:
+            total_price = sum([product.price for product in self.__products])
+            total_qty = sum([product.quantity for product in self.products])
+            return  round(total_price / total_qty, 2)
+
+        except ZeroDivisionError:
+            return 0

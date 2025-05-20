@@ -15,3 +15,18 @@ class Smartphone(Product):
             return self.price * self.quantity + other.price * other.quantity
         else:
             raise TypeError
+
+    @classmethod
+    def new_product(cls, dict_smartphone):
+        name = dict_smartphone['name']
+        description = dict_smartphone['description']
+        price = dict_smartphone['price']
+        quantity = dict_smartphone['quantity']
+        efficiency = dict_smartphone['efficiency']
+        model = dict_smartphone['model']
+        memory = dict_smartphone['memory']
+        color = dict_smartphone['color']
+
+        new_smartphone = Smartphone(name, description, price, quantity, efficiency,
+                                  model, memory, color)
+        return new_smartphone
