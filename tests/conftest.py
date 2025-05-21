@@ -29,20 +29,15 @@ def product1():
 @pytest.fixture
 def product2():
     return Product(
-        name="Iphone 15",
-        description="512GB, Gray space",
-        price=210000.0,
-        quantity=8
+        name="Iphone 15", description="512GB, Gray space", price=210000.0, quantity=8
     )
 
 
 @pytest.fixture
 def product3():
     return Product(
-        name="55 QLED 4K",
-        description="Фоновая подсветка",
-        price=123000.0,
-        quantity=14)
+        name="55 QLED 4K", description="Фоновая подсветка", price=123000.0, quantity=14
+    )
 
 
 @pytest.fixture
@@ -60,7 +55,7 @@ def category1(product1, product2, product3):
     return Category(
         name="Смартфоны",
         description="Смартфоны, как средство не только коммуникации, "
-                    "но и получения дополнительных функций для удобства жизни",
+        "но и получения дополнительных функций для удобства жизни",
         products=[product1, product2, product3],
     )
 
@@ -70,7 +65,7 @@ def category2(product1, product2):
     return Category(
         name="Телевизоры",
         description="Современный телевизор, который позволяет наслаждаться"
-                    " просмотром, станет вашим другом и помощником",
+        " просмотром, станет вашим другом и помощником",
         products=[product1],
     )
 
@@ -80,7 +75,7 @@ def category3(product4):
     return Category(
         name="Телевизоры",
         description="Современный телевизор, который позволяет "
-                    "наслаждаться просмотром, станет вашим другом и помощником",
+        "наслаждаться просмотром, станет вашим другом и помощником",
         products=[product4],
     )
 
@@ -88,6 +83,7 @@ def category3(product4):
 @pytest.fixture
 def product_str():
     return "Название продукта: Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+
 
 @pytest.fixture
 def smartphone1():
@@ -99,7 +95,7 @@ def smartphone1():
         efficiency=95.5,
         model="S23 Ultra",
         memory=256,
-        color="Серый"
+        color="Серый",
     )
 
 
@@ -113,7 +109,7 @@ def smartphone2():
         efficiency=98.2,
         model="15",
         memory=512,
-        color="Gray space"
+        color="Gray space",
     )
 
 
@@ -126,7 +122,7 @@ def grass1():
         quantity=20,
         country="Россия",
         germination_period="7 дней",
-        color="Зеленый"
+        color="Зеленый",
     )
 
 
@@ -139,8 +135,9 @@ def grass2():
         quantity=15,
         country="США",
         germination_period="5 дней",
-        color="Темно-зеленый"
+        color="Темно-зеленый",
     )
+
 
 @pytest.fixture
 def product_invalid():

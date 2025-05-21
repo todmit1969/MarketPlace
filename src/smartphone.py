@@ -2,8 +2,9 @@ from src.product import Product
 
 
 class Smartphone(Product):
-    def __init__(self, name, description, price, quantity,
-                 efficiency, model, memory, color):
+    def __init__(
+        self, name, description, price, quantity, efficiency, model, memory, color
+    ):
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency
         self.model = model
@@ -18,15 +19,16 @@ class Smartphone(Product):
 
     @classmethod
     def new_product(cls, dict_smartphone):
-        name = dict_smartphone['name']
-        description = dict_smartphone['description']
-        price = dict_smartphone['price']
-        quantity = dict_smartphone['quantity']
-        efficiency = dict_smartphone['efficiency']
-        model = dict_smartphone['model']
-        memory = dict_smartphone['memory']
-        color = dict_smartphone['color']
+        name = dict_smartphone["name"]
+        description = dict_smartphone["description"]
+        price = dict_smartphone["price"]
+        quantity = dict_smartphone["quantity"]
+        efficiency = dict_smartphone["efficiency"]
+        model = dict_smartphone["model"]
+        memory = dict_smartphone["memory"]
+        color = dict_smartphone["color"]
 
-        new_smartphone = Smartphone(name, description, price, quantity, efficiency,
-                                  model, memory, color)
+        new_smartphone = Smartphone(
+            name, description, price, quantity, efficiency, model, memory, color
+        )
         return new_smartphone
