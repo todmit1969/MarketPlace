@@ -1,6 +1,7 @@
 from src.baseproduct import BaseProduct
 from src.mixinprint import MixinPrint
 
+
 class Product(MixinPrint, BaseProduct):
     name: str
     description: str
@@ -17,15 +18,15 @@ class Product(MixinPrint, BaseProduct):
         self.quantity = quantity
         super().__init__()
 
-
     def __str__(self):
-        return (f"Название продукта: {self.name}, "
-                f"{self.__price} руб. Остаток: {self.quantity} шт.")
+        return (
+            f"Название продукта: {self.name}, "
+            f"{self.__price} руб. Остаток: {self.quantity} шт."
+        )
 
     def __add__(self, other):
         if isinstance(other, Product) or issubclass(other, Product):
-            return ((self.__price * self.quantity) +
-                    (other.__price * other.quantity))
+            return (self.__price * self.quantity) + (other.__price * other.quantity)
         return NotImplemented
 
     @property
@@ -41,15 +42,13 @@ class Product(MixinPrint, BaseProduct):
 
     @classmethod
     def new_product(cls, dict_products):
-        name = dict_products['name']
-        description = dict_products['description']
-        price = dict_products['price']
-        if dict_products['quantity'] <= 0:
+        name = dict_products["name"]
+        description = dict_products["description"]
+        price = dict_products["price"]
+        if dict_products["quantity"] <= 0:
             raise ValueError("Товар с нулевым количеством не может быть добавлен!")
         else:
-            quantity = dict_products['quantity']
-
-
+            quantity = dict_products["quantity"]
 
         new_products = Product(name, description, price, quantity)
         return new_products

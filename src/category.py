@@ -17,8 +17,10 @@ class Category:
 
     def __str__(self):
         products_qty = sum(product.quantity for product in self.__products)
-        return (f"Название категории: {self.name},"
-                f" количество продуктов: {products_qty} шт.")
+        return (
+            f"Название категории: {self.name},"
+            f" количество продуктов: {products_qty} шт."
+        )
 
     @property
     def products(self):
@@ -36,7 +38,7 @@ class Category:
         try:
             total_price = sum([product.price for product in self.__products])
             total_qty = sum([product.quantity for product in self.products])
-            return  round(total_price / total_qty, 2)
+            return round(total_price / total_qty, 2)
 
         except ZeroDivisionError:
             return 0

@@ -6,13 +6,13 @@ class BaseProduct(ABC):
     @property
     @abstractmethod
     def price(self):
-        """ Геттер для цены """
+        """Геттер для цены"""
         pass
 
     @price.setter
     @abstractmethod
     def price(self, new_price):
-        """ Сеттер для цены с проверкой """
+        """Сеттер для цены с проверкой"""
         pass
 
     @abstractmethod

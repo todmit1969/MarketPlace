@@ -12,7 +12,7 @@ class MyServer(BaseHTTPRequestHandler):
     """
 
     def do_GET(self):
-        """ Метод для обработки входящих GET-запросов """
+        """Метод для обработки входящих GET-запросов"""
         path = self.get_path()
         print(path)
         try:
@@ -22,8 +22,9 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_error(404, "File Not Found")
         else:
             self.send_response(200)  # Отправка кода ответа
-            self.send_header("Content-type",
-                             self.get_content_type())  # Отправка типа данных, который будет передаваться
+            self.send_header(
+                "Content-type", self.get_content_type()
+            )  # Отправка типа данных, который будет передаваться
             self.end_headers()  # Завершение формирования заголовков ответа
             self.wfile.write(bytes(page_content, "utf-8"))  # Тело ответа
 
